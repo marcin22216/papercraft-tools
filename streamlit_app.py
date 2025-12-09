@@ -404,47 +404,16 @@ with col_center:
     st.markdown("""
     <div style='text-align: center; padding: 25px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
                 border-radius: 15px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);'>
-        <h3 style='color: white; margin-bottom: 10px; font-size: 24px;'>☕ Podobają Ci się te narzędzia?</h3>
+        <h3 style='color: white; margin-bottom: 10px; font-size: 24px;'>☕ Podobają Ci się darmowe narzędzia?</h3>
         <p style='color: #f0f0f0; margin-bottom: 0; font-size: 16px;'>
-            Jeśli ta strona jest dla Ciebie przydatna, rozważ wsparcie rozwoju projektu!
+            Jeśli to co tutaj znajdujesz jest dla Ciebie pomocne, możesz wesprzeć rozwój projektu.
         </p>
     </div>
     """, unsafe_allow_html=True)
     
-    # Przyciski wsparcia
-    support_col1, support_col2, support_col3 = st.columns(3)
-    
-    with support_col1:
-        st.markdown("""
-        <a href="https://www.buymeacoffee.com/TWOJ_USERNAME" target="_blank" style="text-decoration: none;">
-            <div style='text-align: center; padding: 18px; background: linear-gradient(135deg, #FFDD00 0%, #FBB034 100%); 
-                        border-radius: 10px; color: #000; font-weight: bold;
-                        box-shadow: 0 4px 15px rgba(255, 221, 0, 0.4); 
-                        transition: all 0.3s ease;
-                        cursor: pointer;'>
-                <div style='font-size: 24px; margin-bottom: 5px;'>☕</div>
-                <div>Buy Me a Coffee</div>
-            </div>
-        </a>
-        """, unsafe_allow_html=True)
-    
-    with support_col2:
-        st.markdown("""
-        <a href="https://www.paypal.com/paypalme/TWOJ_USERNAME" target="_blank" style="text-decoration: none;">
-            <div style='text-align: center; padding: 18px; background: linear-gradient(135deg, #0070BA 0%, #1546A0 100%); 
-                        border-radius: 10px; color: white; font-weight: bold;
-                        box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4); 
-                        transition: all 0.3s ease;
-                        cursor: pointer;'>
-                <div style='font-size: 24px; margin-bottom: 5px;'>💳</div>
-                <div>PayPal</div>
-            </div>
-        </a>
-        """, unsafe_allow_html=True)
-    
-    with support_col3:
-        if st.button("🪙 **Crypto**", use_container_width=True, type="secondary"):
-            st.session_state.show_crypto = True
+    # Przycisk Crypto
+    if st.button("🪙 **Wesprzyj Crypto**", use_container_width=True, type="primary"):
+        st.session_state.show_crypto = True
     
     # Modal z crypto
     if 'show_crypto' in st.session_state and st.session_state.show_crypto:
@@ -459,17 +428,17 @@ with col_center:
         
         with crypto_col1:
             st.markdown("**Bitcoin (BTC):**")
-            st.code("TWÓJ_ADRES_BTC_TUTAJ", language="text")
+            st.code("bc1qvw7zl88s9a88cydqxzxxfcyqapsv5ks3yk689z", language="text")
             
             st.markdown("**Ethereum (ETH):**")
-            st.code("TWÓJ_ADRES_ETH_TUTAJ", language="text")
+            st.code("0x6B084eF6E8389Ba8013087cfFE1ed96c7eE41E9F", language="text")
         
         with crypto_col2:
-            st.markdown("**USDT (TRC20):**")
-            st.code("TWÓJ_ADRES_USDT_TUTAJ", language="text")
+            st.markdown("**USDC (ERC20):**")
+            st.code("0x6B084eF6E8389Ba8013087cfFE1ed96c7eE41E9F", language="text")
             
-            st.markdown("**Inne:**")
-            st.code("INNY_ADRES_CRYPTO", language="text")
+            st.markdown("**💡 Tip:**")
+            st.info("Każda kwota pomaga w rozwoju darmowych narzędzi!")
         
         if st.button("✖️ Zamknij", use_container_width=True):
             st.session_state.show_crypto = False
